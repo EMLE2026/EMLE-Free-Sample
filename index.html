@@ -34,7 +34,25 @@
     --topbar-h: 54px;
   }
 
-  * { box-sizing: border-box; }
+  html {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Prevent Chrome Android Font Boosting / Text Autosizing in Desktop Site Mode */
+  p, div, span, li, td, th, label, blockquote, a, b, strong, em {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    max-height: 999999px;
+  }
 
   body {
     margin: 0;
@@ -492,22 +510,36 @@
     border-radius: 8px;
     padding: 12px 14px;
     text-align: right;
+    max-height: 999999px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .spd-target-kicker {
     font-size: 12px;
     font-weight: 700;
     color: var(--text-muted);
+    max-height: 999999px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
   .spd-target-val {
     font-size: 20px;
     font-weight: 900;
     color: var(--teal);
     margin: 4px 0 2px 0;
+    max-height: 999999px;
+    white-space: nowrap;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
   .spd-target-sub {
     font-size: 12px;
     color: var(--text-secondary);
     font-weight: 600;
+    max-height: 999999px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
   .spd-merged-analysis-strip {
     background: #f8fafc;
@@ -2438,6 +2470,7 @@
     .nav-cards-grid { grid-template-columns: 1fr; }
     .article-card { padding: 18px; }
   }
+#welcomeAuthOverlay { display: none !important; }
 </style>
   <!-- Firebase SDKs (Compat for pure browser CDN) -->
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
@@ -2966,10 +2999,10 @@
             <div style="color:#b45309; font-weight:600; margin-bottom:8px;">
               كلا الرقمين متاح عليهم <strong>إنستا باي (InstaPay)</strong> أو <strong>فودافون كاش</strong>.
             </div>
-            <div style="margin-top:10px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-              <span style="font-weight:700; color:#92400e;">بعد التحويل، يتم التواصل على البوت للحصول على المنصة كاملة:</span>
-              <a href="https://t.me/EMLE_in_Nutshell_bot" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; background:#0284c7; color:#fff; font-weight:700; font-size:13px; padding:6px 14px; border-radius:7px; text-decoration:none; box-shadow:0 2px 6px rgba(2,132,199,0.3);">
-                <span>🤖 تواصل مع البوت (EMLE_in_Nutshell_bot)</span>
+            <div style="margin-top:12px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+              <span style="font-weight:700; color:#92400e;">ثم تواصل معنا على التليجرام من خلال هذا الرابط للحصول على المنصة كاملة:</span>
+              <a href="https://t.me/EMLE_inNutshell_Contact" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; background:#0284c7; color:#fff; font-weight:700; font-size:13.5px; padding:7px 16px; border-radius:8px; text-decoration:none; box-shadow:0 2px 6px rgba(2,132,199,0.3); direction:ltr;">
+                <span>✈️ https://t.me/EMLE_inNutshell_Contact</span>
                 <span>↗</span>
               </a>
             </div>
@@ -3589,9 +3622,7 @@
         <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.36 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.36 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
         <span>Sign in / Sign up with Google</span>
       </button>
-      <div style="margin-top:10px; font-size:12px; color:var(--text-muted); text-align:center;">
-        أو عبر البريد الإلكتروني: <a href="javascript:void(0)" onclick="closeWelcomeAndOpenEmailAuth()" style="color:var(--teal); font-weight:700; text-decoration:underline;">تسجيل الدخول / إنشاء حساب بالإيميل</a>
-      </div>
+      
     </div>
 
     <button class="welcome-guest-btn" onclick="continueWithoutSignIn()" type="button">
@@ -3719,28 +3750,7 @@
         <span>Sign in / Sign up with Google</span>
       </button>
 
-      <div class="auth-divider"><span>or with Email</span></div>
-
-      <!-- Email / Password Form -->
-      <form onsubmit="handleEmailAuth(event)">
-        <div class="auth-input-group">
-          <label for="authEmailInput">Email address</label>
-          <input type="email" id="authEmailInput" placeholder="doctor@example.com" required autocomplete="email" />
-        </div>
-        <div class="auth-input-group">
-          <label for="authPassInput">Password</label>
-          <input type="password" id="authPassInput" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required autocomplete="current-password" minlength="6" />
-        </div>
-
-        <div style="display:flex; gap:10px; margin-top:14px;">
-          <button type="submit" class="btn-teal" id="btnEmailLogin" style="flex:1; justify-content:center;">
-            <span>Sign In</span>
-          </button>
-          <button type="button" class="btn-outline" onclick="handleEmailSignUp()" id="btnEmailSignUp" style="flex:1; justify-content:center;">
-            <span>Create Account</span>
-          </button>
-        </div>
-      </form>
+      
 
       <div style="margin-top:14px; text-align:center; font-size:11.5px; color:var(--text-muted);">
         Your questions and progress are securely isolated to your account.
@@ -6793,9 +6803,12 @@ function renderTopicPage(topicId) {
         </div>
         <div style="font-size:12.5px; color:#b45309; font-weight:600;">(كلا الرقمين متاح عليهم <strong>إنستا باي (InstaPay)</strong> أو <strong>فودافون كاش</strong>)</div>
       </div>
-      <div>
-        <a href="https://t.me/EMLE_in_Nutshell_bot" target="_blank" rel="noopener noreferrer" class="btn-teal" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; padding:11px 24px; font-size:14.5px; font-weight:700;">
-          <span>🤖 تواصل مع البوت للحصول على المنصة كاملة</span>
+      <div style="margin-top:12px;">
+        <div style="font-weight:700; color:#92400e; margin-bottom:8px; font-size:14.5px;">
+          ثم تواصل معنا على التليجرام من خلال هذا الرابط للحصول على المنصة كاملة:
+        </div>
+        <a href="https://t.me/EMLE_inNutshell_Contact" target="_blank" rel="noopener noreferrer" class="btn-teal" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; padding:11px 24px; font-size:14px; font-weight:700; direction:ltr;">
+          <span>✈️ https://t.me/EMLE_inNutshell_Contact</span>
           <span>↗</span>
         </a>
       </div>
@@ -6883,7 +6896,7 @@ function getQuestionsForFilter(filter) {
 function startQuiz(filter) {
   const qs = getQuestionsForFilter(filter);
   if (qs.length === 0) {
-    showToast("🔒 أسئلة هذا القسم متاحة في النسخة الكاملة للمنصة (تواصل مع البوت للاشتراك).");
+    showToast("🔒 أسئلة هذا القسم متاحة في النسخة الكاملة للمنصة (تواصل معنا عبر التليجرام للاشتراك).");
     return;
   }
   if (filter !== "custom_exam") { state.examMode = false; state.examSubmitted = false; }
@@ -7314,19 +7327,8 @@ function initFirebase() {
 const GUEST_CONTINUE_KEY = "emle_nutshell_guest_continue_v1";
 
 function showWelcomeGateIfNeeded() {
-  const overlay = document.getElementById("welcomeAuthOverlay");
-  if (!overlay) return;
-  if (currentUser) {
-    overlay.classList.remove("show");
-    return;
-  }
-  let guestChosen = false;
-  try {
-    guestChosen = localStorage.getItem(GUEST_CONTINUE_KEY) === "1";
-  } catch (e) {}
-  if (!guestChosen) {
-    overlay.classList.add("show");
-  }
+  // Disabled in Free Trial Edition
+  return;
 }
 
 function continueWithoutSignIn() {
@@ -7812,9 +7814,7 @@ async function bootCompressedPortal() {
   initFirebase();
   renderPomo();
   navigateTo("home");
-  setTimeout(() => {
-    if (!currentUser) showWelcomeGateIfNeeded();
-  }, 350);
+  // Welcome gate disabled in Free Trial Edition
 }
 window.addEventListener("DOMContentLoaded", () => {
   bootCompressedPortal();
